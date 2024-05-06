@@ -2,7 +2,7 @@ import java.util.*;
 
 public class arrays {
     public static void main(String args[]) {
-        linearSearch();
+        binarySearch();
     }
 
     public static void creatingArrays() {
@@ -59,7 +59,7 @@ public class arrays {
         int numbers[] = {1,3,5,9,20,5,34,20,34,26};
         int key = 10; //Search Element
         boolean flag = false;
-        for(int i = 0; i < numbers.length; i++) {
+        for(int i = 0; i < numbers.length; i++) { //Time Complexity = O(n)
             if (numbers[i] == key) {
                 System.out.println("Element found at " + i);
                 flag = true;
@@ -71,4 +71,37 @@ public class arrays {
         }
     }
 
+    public static void largestInArray() {
+        int number[] = {100,3,5,9,20,5,34,20,34,56};
+        int largest = Integer.MIN_VALUE; //-infinity
+        int smallest =  Integer.MAX_VALUE; //+infinity
+        for(int i = 0; i < number.length; i++) { //Time Complexity = O(n)
+            if (largest < number[i]) {
+                largest = number[i];
+            }
+            if (smallest > number[i]) {
+                smallest = number[i];
+            }
+        }
+        System.out.println("Largest Number is " + largest);
+        System.out.println("Smallest Number is " + smallest);
+    }
+
+    public static void binarySearch() {
+        int number[] = {3,5,9,20,34,56,100}; //Sorted Array
+        int key = 9;
+        int LB = 0;
+        int UB = number.length - 1;
+        while (LB <= UB) {
+            int mid = (LB + UB)/2;
+            if (key == number[mid]) {
+                System.out.println("Element found at "+ mid);
+                break;
+            } else if ( key > number[mid] ) { //right side
+                LB = mid + 1;
+            } else { //left side
+                UB = mid - 1;
+            }
+        }
+    }
 }
