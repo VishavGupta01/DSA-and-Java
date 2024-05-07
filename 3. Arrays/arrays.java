@@ -2,7 +2,7 @@ import java.util.*;
 
 public class arrays {
     public static void main(String args[]) {
-        binarySearch();
+        maxSubArraySumPrefixApproach();
     }
 
     public static void creatingArrays() {
@@ -87,7 +87,7 @@ public class arrays {
         System.out.println("Smallest Number is " + smallest);
     }
 
-    public static void binarySearch() {
+    public static void binarySearch() { //Time Complexity = O(log n)
         int number[] = {3,5,9,20,34,56,100}; //Sorted Array
         int key = 9;
         int LB = 0;
@@ -103,5 +103,89 @@ public class arrays {
                 UB = mid - 1;
             }
         }
+    }
+
+    public static void reverseAnArray() { //Time Complexity = O(n) & Space Complexity = O(1)
+        int array[] = {1,2,3,4,5,6,7,8};
+        int start = 0;
+        int end = array.length-1;
+        while (end > start) {
+            int temp = array[start];
+            array[start] = array[end];
+            array[end] = temp;
+            start++;
+            end--;
+        }
+        for(int i = 0; i < array.length; i++) { // Printing array
+            System.out.print(array[i]);
+        }
+    }
+
+    public static void pairsInAnArray() { //Time Complexity = O(n^2) & Space Complexity = o(1)
+        int array[] = {2,4,6,8};
+        int total = 0;
+        for(int i = 0; i < array.length - 1 ; i++) {
+            for(int j = i + 1 ; j < array.length ; j++) {
+                System.out.print("{"+ array[i] + " , " + array[j] + "} " );
+                total++;
+            }
+            System.out.println();
+        }
+        System.out.println("Total Pairs : " + total); // Total Pairs = (n(n-1)) / 2
+    }
+
+    public static void subArrays() { // Time Complexity = O(n^3) & Space Complexity = O(1)
+        int array[] = {2,4,-1,-3};
+        int total = 0;
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        for(int i = 0; i < array.length; i++) {
+            for(int j = i; j < array.length; j++) {
+                System.out.print(" [ ");
+                int totalOfSubArray = 0;
+                for(int k = i ; k <= j ; k++) {
+                    System.out.print(" " +array[k]+ " ");
+                    totalOfSubArray += array[k];
+                }
+                System.out.print(" ] " + totalOfSubArray);
+                if (max < totalOfSubArray) {
+                    max = totalOfSubArray;
+                }
+                if (min > totalOfSubArray) {
+                    min = totalOfSubArray;
+                }
+                total++; //Total Number of Sub Arrays in an Array = (n(n+1)) / 2
+            }
+            System.out.println();
+        }
+        System.out.println("Total Number of SubArrays = " + total);
+        System.out.println("Max of weight of an SubArray = " + max); // Using BruteForce
+        System.out.println("Min of weight of an SubArray = " + min);
+    }
+
+    public static void maxSubArraySumPrefixApproach() {
+        int array[] = {1, -1, 6, -1, 3};
+        int total = 0;
+        int max = Integer.MIN_VALUE;
+
+        int prefix[] = new int[array.length];
+        prefix[0] = array[0];
+        for(int i = 1; i < array.length; i++) {
+            prefix[i] = prefix[i-1] + array[i];
+        }
+
+        for(int i=0; i < array.length; i++) {
+            for(int j=i; j < array.length; j++) {
+                if (i == 0) {
+                    total = prefix[j];
+                } else {
+                    total = prefix[j] - prefix[i-1];
+                }
+                if (max < total) {
+                    max = total;
+                }
+            }
+        }
+        System.out.println("Weight of max SubArray = " + max);
     }
 }
