@@ -2,7 +2,7 @@ import java.util.*;
 
 public class arrays {
     public static void main(String args[]) {
-        maxSubArraySumPrefixApproach();
+        kadanesAlgo();
     }
 
     public static void creatingArrays() {
@@ -163,7 +163,7 @@ public class arrays {
         System.out.println("Min of weight of an SubArray = " + min);
     }
 
-    public static void maxSubArraySumPrefixApproach() {
+    public static void maxSubArraySumPrefixApproach() { //Time Complexity = O(n^2) & Space Complexity = O(1)
         int array[] = {1, -1, 6, -1, 3};
         int total = 0;
         int max = Integer.MIN_VALUE;
@@ -187,5 +187,31 @@ public class arrays {
             }
         }
         System.out.println("Weight of max SubArray = " + max);
+    }
+
+    public static void kadanesAlgo() { // Time Complexity = O(n) & Space Complexity = O(1)
+        int array[] = {-2,-3,4,-1,-2,1,5,-3};
+        int cs = 0;
+        int ms = Integer.MIN_VALUE;
+        //All Negative Special Case:
+        // int min = Integer.MIN_VALUE;
+        // for(int i = 0; i < array.length; i++) {
+        //     if (array[i] >= 0) {
+        //         min = Math.min(min, array[i]);
+        //     }
+        // }
+        // System.out.println(min);
+        for(int i = 0; i < array.length; i++) {
+            cs = cs + array[i];
+            if (cs < 0) {
+                cs = 0;
+            }
+            // if (cs > ms) {
+            //     ms = cs;
+            // }
+            //Or
+            ms = Math.max(ms, cs);
+        }
+        System.out.println("Max Sub Array Sum is: " + ms);
     }
 }
