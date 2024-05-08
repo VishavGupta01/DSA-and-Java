@@ -5,7 +5,7 @@ public class kadanes {
         System.out.println(kadanesalgo(array));
     }
 
-    public static int kadanesalgo(int array[]) {
+    public static int kadanesalgo(int array[]) {// Time Complexity = O(n) & Space Complexity = O(1)
         boolean flag = false;
         for(int i = 0; i < array.length; i++) {
             if (array[i] < 0) {
