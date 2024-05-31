@@ -37,16 +37,16 @@ public class sorts {
     public static void selectionSort(int[] array) {// Time Complexity => O(n^2)
         int len = array.length;
         for(int i = 0; i < len-1; i++) {
-            int min = array[i];
-            boolean flag = false;
-            for(int j = i+1; j < len; j++) {
-                if(min > array[j]) {
-                    min = array[j];
-                    flag = true;
+            int minIndex = i;
+            for(int j = i+1; j < array.length; j++) {
+                if (array[minIndex] > array[j]) {
+                    minIndex = j;
                 }
             }
-            if (flag == true) {
-                array[i] = min;
+            if (minIndex != i) {
+                int temp =  array[i];
+                array[i] = array[minIndex];
+                array[minIndex] = temp;
             }
         }
         printArray(array);
@@ -78,7 +78,7 @@ public class sorts {
         System.out.println(Arrays.toString(arrays));
     }
 
-    public static void countingSort(int[] array) { // Time Complexity => O(n + range) 
+    public static void countingSort(int[] array) { // Time Complexity => O(n + range)
         int largest = Integer.MIN_VALUE;
         for(int i = 0; i < array.length; i++) {
             largest = Math.max(largest, array[i]);
