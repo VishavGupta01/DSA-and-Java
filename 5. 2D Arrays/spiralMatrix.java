@@ -22,10 +22,10 @@ public class spiralMatrix {
             for(int i = sr+1; i <= er; i++) { //right
                 System.out.print(matrix[i][ec] + " ");
             }
-            for(int i = ec - 1; i >= sc; i--) {
+            for(int i = ec - 1; i >= sc; i--) { //bottom
                 System.out.print(matrix[er][i]+ " ");
             }
-            for(int i = er-1; i >= sc+1; i--) {
+            for(int i = er-1; i >= sc+1; i--) { //left
                 System.out.print(matrix[i][sc] + " ");
             }
             sr++;
