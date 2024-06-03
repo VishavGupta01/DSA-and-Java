@@ -2,8 +2,11 @@ public class stringBuilder {
     public static void main(String[] args) {
         // StringBuilder sb = new StringBuilder("Hello World");
         // System.out.println(sb.toString());
-        String str = "hello world";
-        toUpperCase(str);
+        // String str = "hello world";
+        // toUpperCase(str);
+
+        String word = "aaabbccddd";
+        stringCompression(word);
     }
 
     public static void toUpperCase(String str) {
@@ -22,4 +25,20 @@ public class stringBuilder {
         System.out.println(sb);
     }
 
+    public static void stringCompression(String str) {
+        StringBuilder sb = new StringBuilder("");
+        for(int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            int count = 1;
+            while (i < str.length()-1 && str.charAt(i) == str.charAt(i+1)) {
+                count++;
+                i++;
+            }
+            sb.append(ch);
+            if (count > 1) {
+                sb.append(count);
+            }
+        }
+        System.out.println(sb);
+    }
 }

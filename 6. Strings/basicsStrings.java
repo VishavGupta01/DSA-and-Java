@@ -1,4 +1,4 @@
-public class basics {
+public class basicsStrings {
     public static void main(String[] args) {
         String palindrome = "madam";
         System.out.println(palindrome(palindrome));

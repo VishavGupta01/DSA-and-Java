@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class basics {
+public class basics2DArrays {
     public static void main(String args[]) {
         basic();
     }
