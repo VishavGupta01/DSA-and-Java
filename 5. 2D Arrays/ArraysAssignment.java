@@ -1,4 +1,4 @@
-public class assignment {
+public class ArraysAssignment {
     public static void main(String[] args) {
         int[][] matrix = {
             {1,2,3,4},
