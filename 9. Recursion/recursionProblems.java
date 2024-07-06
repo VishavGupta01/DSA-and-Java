@@ -1,6 +1,6 @@
 public class recursionProblems {
     public static void main(String[] args) {
-        System.out.println(sumOfnNaturalNo(5));
+        System.out.println(fibonacci(8));
     }
 
     //Q1. Print numbers from 1 to n
@@ -32,5 +32,17 @@ public class recursionProblems {
         }
         int sum = n + sumOfnNaturalNo(n-1);
         return sum;
+    }
+
+    //Q4. Print nth Fibonacci Series. [ 0, 1, 1, 2, 3, 5, 8, 13 ...]
+    public static int fibonacci(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        if (n == 0) {
+            return 0;
+        }
+        int fib = fibonacci(n-1) + fibonacci(n-2);
+        return fib;
     }
 }
