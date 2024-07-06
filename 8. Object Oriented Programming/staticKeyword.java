@@ -1,17 +1,17 @@
 public class staticKeyword {
     public static void main(String[] args) {
-        Student s1 = new Student();
+        Student1 s1 = new Student1();
         s1.schoolName = "TIET";
         System.out.println(s1.getPercentage(86,97,95));
 
-        Student s2 = new Student();
+        Student1 s2 = new Student1();
         System.out.println(s2.schoolName);
         System.out.println(s2.getPercentage(96, 78, 93));
 
     }
 }
 
-class Student {
+class Student1 {
     static String course;
     String name;
     int rollNo;

@@ -7,7 +7,7 @@ public class inheritance {
 }
 
 //Parent Class
-class Animal {
+class Animal2 {
     String name;
     String sound;
 
@@ -20,7 +20,7 @@ class Animal {
 }
 
 //Derived/Child Class
-class Fish extends Animal {
+class Fish extends Animal2 {
     int Fins;
 
     void swims() {

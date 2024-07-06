@@ -10,10 +10,10 @@ public class polymorphism {
         Deer d1 = new Deer();
         d1.eat();
 
-        Animal d2 = new Deer();
+        Animal3 d2 = new Deer();
         d2.eat();
 
-        Animal d3 = new Animal();
+        Animal3 d3 = new Animal3();
         d3.eat();
 
     }
@@ -33,12 +33,12 @@ class Calculator {
 }
 
 //Method Overriding
-class Animal {
+class Animal3 {
     void eat() {
         System.out.println("eats anything!");
     }
 }
-class Deer extends Animal {
+class Deer extends Animal3 {
     void eat() {
         System.out.println("eats Grass!");
     }
