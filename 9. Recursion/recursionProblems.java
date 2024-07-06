@@ -1,6 +1,6 @@
 public class recursionProblems {
     public static void main(String[] args) {
-        System.out.println(factorial(20));
+        System.out.println(sumOfnNaturalNo(5));
     }
 
     //Q1. Print numbers from 1 to n
@@ -23,5 +23,14 @@ public class recursionProblems {
         }
         int fact = n * factorial(n-1);
         return fact;
+    }
+
+    //Q3. Print Sum of first n natural numbers.
+    public static int sumOfnNaturalNo(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        int sum = n + sumOfnNaturalNo(n-1);
+        return sum;
     }
 }
