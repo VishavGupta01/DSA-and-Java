@@ -89,11 +89,12 @@ public class recursionProblems {
     }
 
     //Optimized Way
-    public static int powerOptimized(int x, int n) {
+    public static int powerOptimized(int x, int n) { // Time Complexity: O(log n)
         if (n == 0) {
             return 1;
         }
-        int result = powerOptimized(x, n/2) * powerOptimized(x, n/2);
+        int halfPow = powerOptimized(x, n/2);
+        int result = halfPow * halfPow;
         //n => Odd
         if (n % 2 != 0) {
             result = x * result;
