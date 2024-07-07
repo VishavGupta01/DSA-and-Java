@@ -1,6 +1,7 @@
 public class recursionProblems {
     public static void main(String[] args) {
-        System.out.println(fibonacci(8));
+        int[] array = {1,2,3,4,5};
+        System.out.println(arraySorted(array, 0));
     }
 
     //Q1. Print numbers from 1 to n
@@ -35,7 +36,7 @@ public class recursionProblems {
     }
 
     //Q4. Print nth Fibonacci Series. [ 0, 1, 1, 2, 3, 5, 8, 13 ...]
-    public static int fibonacci(int n) {
+    public static int fibonacci(int n) { //Space Complexity => O(n) , Time Complexity => O(2^n)
         if (n == 1) {
             return 1;
         }
@@ -44,5 +45,16 @@ public class recursionProblems {
         }
         int fib = fibonacci(n-1) + fibonacci(n-2);
         return fib;
+    }
+
+    //Q5. Check if an array is sorted.
+    public static boolean arraySorted(int[] array, int i) {
+        if (i == array.length-1) {
+            return true;
+        }
+        if (array[i] > array[i+1]) {
+            return false;
+        }
+        return arraySorted(array, i+1);
     }
 }
