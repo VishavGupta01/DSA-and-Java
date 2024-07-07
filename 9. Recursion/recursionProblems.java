@@ -1,7 +1,7 @@
 public class recursionProblems {
     public static void main(String[] args) {
         int[] array = {1,2,3,4,5};
-        System.out.println(firstOccur(array, 5 , 0));
+        System.out.println(lastOccur(array, 0 , 4));
     }
 
     //Q1. Print numbers from 1 to n
@@ -67,5 +67,16 @@ public class recursionProblems {
             return i;
         }
         return firstOccur(array, num, i+1);
+    }
+
+    //Q7. Last Occurrence
+    public static int lastOccur(int[] array, int num, int i) { //Time Complexity: O(n) , Space Complexity: O(n)
+        if (i < 0) {
+            return -1;
+        }
+        if (array[i] == num) {
+            return i;
+        }
+        return lastOccur(array, num, i-1);
     }
 }
