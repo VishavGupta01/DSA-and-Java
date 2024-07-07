@@ -1,7 +1,7 @@
 public class recursionProblems {
     public static void main(String[] args) {
         int[] array = {1,2,3,4,5};
-        System.out.println(power(2, 20));
+        System.out.println(powerOptimized(2, 20));
     }
 
     //Q1. Print numbers from 1 to n
@@ -86,5 +86,18 @@ public class recursionProblems {
             return 1;
         }
         return x * power(x, n-1);
+    }
+
+    //Optimized Way
+    public static int powerOptimized(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int result = powerOptimized(x, n/2) * powerOptimized(x, n/2);
+        //n => Odd
+        if (n % 2 != 0) {
+            result = x * result;
+        }
+        return result;
     }
 }
