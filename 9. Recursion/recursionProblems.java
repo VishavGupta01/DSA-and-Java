@@ -1,7 +1,7 @@
 public class recursionProblems {
     public static void main(String[] args) {
         int[] array = {1,2,3,4,5};
-        System.out.println(lastOccur(array, 0 , 4));
+        System.out.println(power(2, 20));
     }
 
     //Q1. Print numbers from 1 to n
@@ -78,5 +78,13 @@ public class recursionProblems {
             return i;
         }
         return lastOccur(array, num, i-1);
+    }
+
+    //Q8. Print x^n
+    public static int power(int x, int n) { // Time Complexity: O(n)
+        if (n == 0) {
+            return 1;
+        }
+        return x * power(x, n-1);
     }
 }
