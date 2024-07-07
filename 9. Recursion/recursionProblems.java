@@ -1,7 +1,7 @@
 public class recursionProblems {
     public static void main(String[] args) {
         int[] array = {1,2,3,4,5};
-        System.out.println(arraySorted(array, 0));
+        System.out.println(firstOccur(array, 5 , 0));
     }
 
     //Q1. Print numbers from 1 to n
@@ -48,7 +48,7 @@ public class recursionProblems {
     }
 
     //Q5. Check if an array is sorted.
-    public static boolean arraySorted(int[] array, int i) {
+    public static boolean arraySorted(int[] array, int i) { //Time Complexity: O(n) , Space Complexity: O(n)
         if (i == array.length-1) {
             return true;
         }
@@ -56,5 +56,16 @@ public class recursionProblems {
             return false;
         }
         return arraySorted(array, i+1);
+    }
+
+    //Q6. First Occurrence
+    public static int firstOccur(int[] array, int num, int i) { //Time Complexity: O(n) , Space Complexity: O(n)
+        if (i == array.length) {
+            return -1;
+        }
+        if (array[i] == num) {
+            return i;
+        }
+        return firstOccur(array, num, i+1);
     }
 }
