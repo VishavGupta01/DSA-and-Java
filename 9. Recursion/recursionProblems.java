@@ -2,9 +2,7 @@ public class recursionProblems {
     public static void main(String[] args) {
         int[] array = {1,2,3,4,5};
         //System.out.println(powerOptimized(2, 20));
-        boolean[] map = new boolean[26];
-        StringBuilder result = new StringBuilder();
-        removeDupe("vishavvvv", result, 0, map);
+        removeDupe("vishavvvv", new StringBuilder(""), 0, new boolean[26]);
     }
 
     //Q1. Print numbers from 1 to n
