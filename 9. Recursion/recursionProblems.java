@@ -1,7 +1,10 @@
 public class recursionProblems {
     public static void main(String[] args) {
         int[] array = {1,2,3,4,5};
-        System.out.println(powerOptimized(2, 20));
+        //System.out.println(powerOptimized(2, 20));
+        boolean[] map = new boolean[26];
+        StringBuilder result = new StringBuilder();
+        removeDupe("vishavvvv", result, 0, map);
     }
 
     //Q1. Print numbers from 1 to n
@@ -100,5 +103,20 @@ public class recursionProblems {
             result = x * result;
         }
         return result;
+    }
+
+    // Remove Duplicate from Strings.
+    public static void removeDupe(String initial, StringBuilder result, int index, boolean[] map) {
+        if (index == initial.length()) {
+            System.out.println(result);
+            return;
+        }
+        char currentChar = initial.charAt(index);
+        if (map[currentChar - 'a'] == true) {
+            removeDupe(initial, result, index+1, map);
+        } else {
+            map[currentChar - 'a'] = true;
+            removeDupe(initial, result.append(currentChar), index+1, map);
+        }
     }
 }
