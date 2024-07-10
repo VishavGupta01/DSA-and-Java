@@ -3,7 +3,8 @@ public class recursionAssignment {
         int[] array = {1,2,3,3,4,5,3};
         String[] digits = {"zero" , "one" , "two" , "three" , "four" , "five" , "six" ,"seven" , "eight" , "nine"};
         //search(array, 3, 0);
-        conversion("", 2005, digits);
+        //conversion("", 2005, digits);
+        stringLength("hello", 0);
     }
 
     //Q1. For a given integer array of size N. You have to find all the occurrences (indices) of a given element (Key) and print them. Use a recursive function to solve this problem.
@@ -26,5 +27,14 @@ public class recursionAssignment {
         int n = num % 10;
         result = map[n] + " " + result;
         conversion(result, num/10, map);
+    }
+
+    //Q3. Length of a String with Recursion.
+    public static void stringLength(String string, int count) {
+        if (string == "") {
+            System.out.println(count);
+            return;
+        }
+        stringLength(string.substring(1), count+1);
     }
 }
