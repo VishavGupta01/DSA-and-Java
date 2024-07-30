@@ -4,7 +4,9 @@ public class recursionAssignment {
         String[] digits = {"zero" , "one" , "two" , "three" , "four" , "five" , "six" ,"seven" , "eight" , "nine"};
         //search(array, 3, 0);
         //conversion("", 2005, digits);
-        stringLength("hello", 0);
+        //stringLength("hello", 0);
+        String input = "abcba";
+        System.out.println(countSubstrings(input, 0, input.length()-1, input.length()));
     }
 
     //Q1. For a given integer array of size N. You have to find all the occurrences (indices) of a given element (Key) and print them. Use a recursive function to solve this problem.
@@ -36,5 +38,22 @@ public class recursionAssignment {
             return;
         }
         stringLength(string.substring(1), count+1);
+    }
+
+    //Q4. We are given a string S, we need to find the count of all contiguous substrings starting and ending with the same character
+    public static int countSubstrings(String input, int start, int end, int length) {
+        if (length == 1) {
+            return 1;
+        }
+        if (length <= 0) {
+            return 0;
+        }
+        int count = countSubstrings(input, start + 1, end, length - 1) +
+                    countSubstrings(input, start, end - 1, length - 1) -
+                    countSubstrings(input, start + 1, end - 1, length - 2 );
+        if (input.charAt(start) == input.charAt(end)) {
+            count++;
+        }
+        return count;
     }
 }
