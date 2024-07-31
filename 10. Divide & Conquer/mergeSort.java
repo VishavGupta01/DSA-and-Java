@@ -1,4 +1,4 @@
-public class mergeSort {
+public class mergeSort { //Time Complexity => O(n log n) , Space Complexity => o(n)
     public static void main(String[] args) {
         int[] input = {2,4,1,4,5,-1};
         mergeSort(input, 0, input.length-1);
@@ -16,9 +16,9 @@ public class mergeSort {
             return;
         }
         int mid = start + ((end - start) / 2);
-        mergeSort(input, start, mid);
-        mergeSort(input, mid+1, end);
-        merge(input, start, mid, end);
+        mergeSort(input, start, mid); //left Array
+        mergeSort(input, mid+1, end); //Right Array
+        merge(input, start, mid, end); // Merging the Sorted Arrays
 
     }
 
