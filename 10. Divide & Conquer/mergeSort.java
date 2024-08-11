@@ -19,7 +19,6 @@ public class mergeSort { //Time Complexity => O(n log n) , Space Complexity => o
         mergeSort(input, start, mid); //left Array
         mergeSort(input, mid+1, end); //Right Array
         merge(input, start, mid, end); // Merging the Sorted Arrays
-
     }
 
     public static void merge(int[] input, int start, int mid, int end) {
