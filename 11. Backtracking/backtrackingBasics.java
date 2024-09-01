@@ -5,6 +5,8 @@ public class backtrackingBasics {
         // printArray(array);
 
         // stringSubsets("abc", "", 0);
+
+        permutations("abc", "");
     }
 
     public static void printArray(int[] array) {
@@ -42,12 +44,14 @@ public class backtrackingBasics {
         stringSubsets(str, ans, i+1); // BackTracking
     }
 
-    public static void permutations(String str, String ans, int i) {
-        if (i == str.length()) {
+    public static void permutations(String str, String ans) {
+        if (str.length() == 0) {
             System.out.println(ans);
             return;
         }
-
-        permutations(str.substring(0, i) + str.substring(i+1,str.length()-1), ans + str.charAt(i), i+1);
+        for(int i = 0; i < str.length(); i++) {
+            String remaining = str.substring(0, i) + str.substring(i+1);
+            permutations(remaining, ans+str.charAt(i));
+        }
     }
 }
