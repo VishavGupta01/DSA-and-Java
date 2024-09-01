@@ -3,9 +3,9 @@
 // -> All Solutions
 // -> Yes/No
 // -> Count the number of Solutions
-public class problemNQueens {
+public class problemNQueens { // TC: O(n!) => T(n) = 1 Queen placing (n) * T(n-1) + isSafe()
     public static void main(String[] args) {
-        int n = 4;
+        int n = 5;
         char[][] board = new char[n][n];
         for(int i = 0; i < board.length; i++) {
             for(int j = 0; j < board[1].length; j++) {
@@ -13,7 +13,10 @@ public class problemNQueens {
             }
         }
         nQueens(board, 0);
+        System.out.println("Number of solutions: " + count);
     }
+
+    public static int count = 0;
 
     public static void printBoard(char[][] board) {
         System.out.println("--- Chess Board ---");
@@ -53,6 +56,7 @@ public class problemNQueens {
     public static void nQueens(char[][] board, int row) {
         if (row == board.length) {
             printBoard(board);
+            count++;
             return;
         }
         for(int i = 0; i < board.length; i++) {
