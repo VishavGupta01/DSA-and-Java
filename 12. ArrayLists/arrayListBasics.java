@@ -31,5 +31,12 @@ public class arrayListBasics {
         // 5. Contains element?  // TC: O(n)
         System.out.println(list.contains(5));
         System.out.println(list.contains(4));
+
+        // Size of an ArrayList
+        System.out.println(list.size());
+
+        for(int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + " ");
+        }
     }
 }
