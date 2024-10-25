@@ -23,5 +23,12 @@ public class arrayListBasicProblems {
             }
         }
         System.out.println("Maximum Value in the ArrayList is: " + max);
+
+        // Q3. Swap values at two Indexes
+        int index1 = 1, index2 = 2;
+        int temp = list.get(index1);
+        list.set(index1, list.get(index2));
+        list.set(index2, temp);
+        System.out.println(list);
     }
 }
