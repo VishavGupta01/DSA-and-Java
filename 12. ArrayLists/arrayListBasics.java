@@ -39,10 +39,15 @@ public class arrayListBasics {
         for(int i = 0; i < list.size(); i++) {
             System.out.print(list.get(i) + " ");
         }
+        System.out.println();
 
-        //Collections Sort
+        //Collections Sort [Ascending Order]
         System.out.println(list);
         Collections.sort(list);
+        System.out.println(list);
+
+        // Collections Sort (Reverse) [Descending Order]
+        Collections.sort(list, Collections.reverseOrder());
         System.out.println(list);
     }
 }
