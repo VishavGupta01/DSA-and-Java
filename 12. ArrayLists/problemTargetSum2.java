@@ -8,7 +8,7 @@ public class problemTargetSum2 {
         System.out.println(solution(list, target));
     }
 
-    public static ArrayList<Integer> solution(ArrayList<Integer> list, int target) {
+    public static ArrayList<Integer> solution(ArrayList<Integer> list, int target) { // Optimized (Two-Pointer) - O(n)
         int n = list.size();
         int breakPoint = 0;
         for(int i = 0; i < list.size()-1; i++) {
