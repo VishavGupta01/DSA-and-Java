@@ -72,6 +72,28 @@ public class basicsLinkedLists {
         return val;
     }
 
+    public int removeLast() {
+        if (size == 0) {
+            System.out.println("Linked List Underflow!");
+            return Integer.MIN_VALUE;
+        } else if (size == 1) {
+            int val = head.data;
+            head = tail = null;
+            size--;
+            return val;
+        }
+
+        Node prev = head;
+        for (int i = 0; i < size-2; i++) {
+            prev = prev.next;
+        }
+        int val = prev.next.data;
+        prev.next = null;
+        tail = prev;
+        size--;
+        return val;
+    }
+
     public void printLL(basicsLinkedLists list) { // O(n)
         Node temp = head;
         if (temp == null) {
@@ -96,7 +118,12 @@ public class basicsLinkedLists {
         list.add(3, 3);
         list.printLL(list);
         System.out.println("Size of the Linked List: " + list.size);
+        System.out.println();
         System.out.println("Removed Element: " + list.removeFirst());
+        list.printLL(list);
+        System.out.println("Size of the Linked List: " + list.size);
+        System.out.println();
+        System.out.println("Removed Element: " + list.removeLast());
         list.printLL(list);
         System.out.println("Size of the Linked List: " + list.size);
     }
