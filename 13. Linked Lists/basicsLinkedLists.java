@@ -11,9 +11,11 @@ public class basicsLinkedLists {
 
     public static Node head;
     public static Node tail;
+    public static int size;
 
     public void addFirst(int data) { // O(1)
         Node newNode = new Node(data);
+        size++;
         if (head == null) {
             head = tail = newNode;
             return;
@@ -24,6 +26,7 @@ public class basicsLinkedLists {
 
     public void addLast(int data) { // O(1)
         Node newNode = new Node(data);
+        size++;
         if(head == null) {
             head = tail = null;
             return;
@@ -37,11 +40,12 @@ public class basicsLinkedLists {
             addFirst(data);
             return;
         }
+        Node newNode = new Node(data);
+        size++;
         if (head == null) {
             head = tail = newNode;
             return;
         }
-        Node newNode = new Node(data);
         Node temp = head;
         int i = 0;
         while(i < index-1) {
@@ -62,6 +66,7 @@ public class basicsLinkedLists {
             System.out.print(temp.data + " ");
             temp = temp.next;
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {
@@ -74,5 +79,6 @@ public class basicsLinkedLists {
         list.addLast(6);
         list.add(3, 3);
         list.printLL(list);
+        System.out.println("Size of the Linked List: " + list.size);
     }
 }
