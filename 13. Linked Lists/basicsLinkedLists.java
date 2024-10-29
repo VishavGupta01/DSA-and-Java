@@ -32,6 +32,26 @@ public class basicsLinkedLists {
         tail = newNode;
     }
 
+    public void add(int index, int data) {
+        if (index == 0) {
+            addFirst(data);
+            return;
+        }
+        if (head == null) {
+            head = tail = newNode;
+            return;
+        }
+        Node newNode = new Node(data);
+        Node temp = head;
+        int i = 0;
+        while(i < index-1) {
+            temp = temp.next;
+            i++;
+        }
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+
     public void printLL(basicsLinkedLists list) { // O(n)
         Node temp = head;
         if (temp == null) {
@@ -49,9 +69,10 @@ public class basicsLinkedLists {
         list.addFirst(2);
         list.addFirst(1);
         list.addFirst(0);
-        list.addLast(3);
         list.addLast(4);
         list.addLast(5);
+        list.addLast(6);
+        list.add(3, 3);
         list.printLL(list);
     }
 }
