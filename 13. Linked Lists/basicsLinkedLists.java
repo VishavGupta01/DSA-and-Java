@@ -124,6 +124,20 @@ public class basicsLinkedLists {
         return -1;
     }
 
+    public int recursiveSearch(basicsLinkedLists list, Node head1, int key) {
+        if(head1 == null) {
+            return -1;
+        }
+        if (head1.data == key) {
+            return 0;
+        }
+        int idx = recursiveSearch(list, head1.next, key);
+        if (idx == -1) {
+            return -1;
+        }
+        return idx+1;
+    }
+
     public static void main(String[] args) {
         basicsLinkedLists list = new basicsLinkedLists();
         list.addFirst(2);
@@ -147,6 +161,10 @@ public class basicsLinkedLists {
 
         // Iterative Search
         System.out.println("Iterative Search for Key = 5 at index: " + list.iterativeSearch(list, 5));
+        System.out.println();
+
+        //Recursive Search
+        System.out.println("Recursive Search for Key = 3 at index: " + list.recursiveSearch(list, head, 3));
         System.out.println();
     }
 }
