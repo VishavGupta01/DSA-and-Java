@@ -107,6 +107,23 @@ public class basicsLinkedLists {
         System.out.println();
     }
 
+    public int iterativeSearch(basicsLinkedLists list, int key) {
+        Node temp = head;
+        int i = 0;
+        if (head == null) {
+            System.out.println("List Underflow!");
+            return -1;
+        }
+        while(temp != null) {
+            if (temp.data == key) {
+                return i;
+            }
+            i++;
+            temp = temp.next;
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
         basicsLinkedLists list = new basicsLinkedLists();
         list.addFirst(2);
@@ -126,5 +143,10 @@ public class basicsLinkedLists {
         System.out.println("Removed Element: " + list.removeLast());
         list.printLL(list);
         System.out.println("Size of the Linked List: " + list.size);
+        System.out.println();
+
+        // Iterative Search
+        System.out.println("Iterative Search for Key = 5 at index: " + list.iterativeSearch(list, 5));
+        System.out.println();
     }
 }
