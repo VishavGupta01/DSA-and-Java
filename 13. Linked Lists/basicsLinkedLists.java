@@ -166,6 +166,5 @@ public class basicsLinkedLists {
         //Recursive Search
         System.out.println("Recursive Search for Key = 3 at index: " + list.recursiveSearch(list, head, 3));
         System.out.println();
-        
     }
 }
