@@ -166,6 +166,53 @@ public class basicsLinkedLists {
         prev.next = prev.next.next;
     }
 
+    // Check if the Linked List is a Palindrome (1221, 1441, racecar, etc) or not
+    // Step 1. Find the Middle Node // 2 Cases: i). Even   ii). Odd
+    // Step 2. Reverse the 2nd Half of the List
+    // Step 3. Check if 1st Half == 2nd Half
+    public boolean palindromeLL(basicsLinkedLists list) {
+        // Edge Cases (1 Element, Empty LL)
+        if (head == null || head.next == null) {
+            return true;
+        }
+        // Step 1. Find the Middle Node
+        Node middle = list.middleNode(list);
+
+        // Step 2. Reverse the 2nd Half
+        Node prev = null;
+        Node curr = middle;
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        Node right = prev;
+        Node left = head;
+
+        // Step 3. Check for Equality in both Halves
+        while (right != null) {
+            if (left.data != right.data) {
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+        return true;
+    }
+
+    public Node middleNode(basicsLinkedLists list) { // Slow-Fast Approach (Slow Pointer goes by +1 & Fast Pointer goes by 2++)
+        Node curr = head;
+        Node slow = curr;
+        Node fast = curr;
+        while (fast != null && fast.next != null) { // 1st Condition is for Even Sized Linked Lists and 2nd is for Odd Sized LL
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
     public static void main(String[] args) {
         basicsLinkedLists list = new basicsLinkedLists();
         list.addFirst(2);
@@ -211,5 +258,11 @@ public class basicsLinkedLists {
         System.out.print("Linked List after: ");
         list.printLL(list);
         System.out.println();
+
+        // Checking for Palindrome
+        list.addLast(4);
+        list.addLast(2);
+        list.addLast(1);
+        System.out.println(list.palindromeLL(list));
     }
 }
