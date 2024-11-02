@@ -152,6 +152,20 @@ public class basicsLinkedLists {
         head = prev;
     }
 
+    // Find and Remove Nth Node from End
+    public void removeNthFromEnd(basicsLinkedLists list, int n) {
+        Node prev = head;
+        int i = size - n; // Index of the Prev Node
+        if (n == size) {
+            head = head.next;
+            return;
+        }
+        for(int j = 1; j < i; j++) { // Traversing to the Prev Node of the Node to be Removed
+            prev = prev.next;
+        }
+        prev.next = prev.next.next;
+    }
+
     public static void main(String[] args) {
         basicsLinkedLists list = new basicsLinkedLists();
         list.addFirst(2);
@@ -186,6 +200,15 @@ public class basicsLinkedLists {
         list.printLL(list);
         list.reverseLinkedList(list);
         System.out.print("Linked List after reversing: ");
+        list.printLL(list);
+        System.out.println();
+        list.reverseLinkedList(list);
+
+        //Removing Nth Node from End
+        System.out.print("Linked List before: ");
+        list.printLL(list);
+        list.removeNthFromEnd(list, 3);
+        System.out.print("Linked List after: ");
         list.printLL(list);
         System.out.println();
     }
