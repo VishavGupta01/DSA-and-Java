@@ -138,6 +138,20 @@ public class basicsLinkedLists {
         return idx+1;
     }
 
+    public void reverseLinkedList(basicsLinkedLists list) {
+        Node prev = null;
+        Node curr = tail = head;
+        Node next;
+
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
+
     public static void main(String[] args) {
         basicsLinkedLists list = new basicsLinkedLists();
         list.addFirst(2);
@@ -165,6 +179,14 @@ public class basicsLinkedLists {
 
         //Recursive Search
         System.out.println("Recursive Search for Key = 3 at index: " + list.recursiveSearch(list, head, 3));
+        System.out.println();
+
+        //Reversing a Linked List
+        System.out.print("Linked List before reversing: ");
+        list.printLL(list);
+        list.reverseLinkedList(list);
+        System.out.print("Linked List after reversing: ");
+        list.printLL(list);
         System.out.println();
     }
 }
