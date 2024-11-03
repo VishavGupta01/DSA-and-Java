@@ -264,5 +264,6 @@ public class basicsLinkedLists {
         list.addLast(2);
         list.addLast(1);
         System.out.println(list.palindromeLL(list));
+        
     }
 }
