@@ -213,6 +213,40 @@ public class basicsLinkedLists {
         return slow;
     }
 
+    public static boolean detectCycle(Node head) {
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast) return true;
+        }
+        return false;
+    }
+
+    public static void removeCycle(Node head) {
+        Node slow = head;
+        Node fast = head;
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast) break;
+        }
+        if(fast == null || fast.next == null) {
+            System.out.println("No Cycle Detected!");
+            return;
+        }
+        slow = head;
+        Node prev = null;
+        while(slow != fast) {
+            slow = slow.next;
+            prev = fast;
+            fast = fast.next;
+        }
+        prev.next = null;
+        System.out.println("Cycle Terminated!");
+    }
+
     public static void main(String[] args) {
         basicsLinkedLists list = new basicsLinkedLists();
         list.addFirst(2);
@@ -264,6 +298,6 @@ public class basicsLinkedLists {
         list.addLast(2);
         list.addLast(1);
         System.out.println(list.palindromeLL(list));
-        
+
     }
 }
