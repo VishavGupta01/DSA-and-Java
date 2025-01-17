@@ -4,11 +4,11 @@ public class assignment10 {
         // mergeSort(arr, 0, arr.length-1);
         // printArray(arr);
 
-        // int[] array = {2,2,1,1,1,2,2,1};
-        // System.out.println(majority(array, 0, array.length-1));
+        int[] array = {2,2,1,1,1,2,2,1,2};
+        System.out.println(majority(array, 0, array.length-1));
 
-        int[] arr = {2, 4, 1, 3, 5};
-        System.out.println(inversionCount(arr, 0, arr.length-1));
+        // int[] arr = {2, 4, 1, 3, 5};
+        // System.out.println(inversionCount(arr, 0, arr.length-1));
     }
 
     public static void printArray1(int[] array) {
