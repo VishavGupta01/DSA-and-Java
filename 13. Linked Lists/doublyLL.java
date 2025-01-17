@@ -27,6 +27,21 @@ public class doublyLL {
         head = temp;
     }
 
+    public void removeFirst() {
+        if(head == null) {
+            System.out.println("List UnderFlow!");
+            return;
+        }
+        if(size == 1) {
+            head = tail = null;
+            size--;
+            return;
+        }
+        head = head.next;
+        head.prev = null;
+        size--;
+    }
+
     public void print() {
         Node temp = head;
         while(temp != null) {
