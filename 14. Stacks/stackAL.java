@@ -13,6 +13,10 @@ public class stackAL {
         }
 
         public static int pop() {
+            if(stack.isEmpty()) {
+                System.out.println("Stack Underflow!");
+                return Integer.MIN_VALUE;
+            }
             int top = stack.get(stack.size() - 1);
             stack.remove(stack.size() - 1);
             return top;
