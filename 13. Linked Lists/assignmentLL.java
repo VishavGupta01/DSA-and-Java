@@ -20,4 +20,18 @@ public class assignmentLL {
         }
         return a;
     }
+
+    // Q2. Delete N Nodes After M Nodes of a Linked List We have a linked list and two integers M and N.Traverse the linked list such that you retain M nodes then delete next N nodes, continue the same till end of the linked list. Difficulty Level : Rookie.
+    public ListNode deleteNodes(int n, int m, ListNode head) {
+        Node temp = head;
+        while(temp != null) {
+            for(int i = 1; i < m && temp != null; i++) temp = temp.next;
+            if(temp == null) break;
+            Node next = temp;
+            for(int i = 0; i < n && next != null; i++) next = next.next;
+            temp.next = next;
+            temp = next;
+        }
+        return head;
+    }
 }
