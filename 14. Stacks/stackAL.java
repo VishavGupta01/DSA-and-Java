@@ -13,7 +13,7 @@ public class stackAL {
         }
 
         public static int pop() {
-            if(stack.isEmpty()) {
+            if(isEmpty()) {
                 System.out.println("Stack Underflow!");
                 return Integer.MIN_VALUE;
             }
