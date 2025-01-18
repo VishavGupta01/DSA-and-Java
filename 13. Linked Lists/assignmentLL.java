@@ -34,4 +34,24 @@ public class assignmentLL {
         }
         return head;
     }
+
+    // Q3. Swapping Nodes in a Linked List We have a linked list and two keys in it, swap nodes for two given keys.Nodes should be swapped by changing links. Swapping data of nodes may be expensive in many situations when data contains many fields. It may be assumed that all keys in the linked list are distinct.
+    public ListNode swapNodes(ListNode head, int k) {
+        if(head == null) return head;
+        int size = 0;
+        ListNode temp = head;
+        while(temp != null) {
+            size++;
+            temp = temp.next;
+        }
+        int k2 = size - k + 1;
+        ListNode start = head;
+        ListNode end = head;
+        for(int i = 1; i < k; i++) start = start.next;
+        for(int i = 1; i < k2; i++) end = end.next;
+        int t = start.val;
+        start.val = end.val;
+        end.val = t;
+        return head;
+    }
 }
