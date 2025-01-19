@@ -72,6 +72,21 @@ public class stackPractice {
         return res;
     }
 
+    // Q6. Valid Parenthesis
+    public static boolean validParenthesis(String str) {
+        Stack<Character> s = new Stack<>();
+        for(char ch : str.toCharArray()) {
+            if(ch == '(' || ch == '{' || ch == '[') s.push(ch);
+            else {
+                if(s.isEmpty()) return false;
+                else if(ch == ')' && s.peek() == '(' || ch == '}' && s.peek() == '{' || ch == ']' && s.peek() == '[') {
+                    s.pop();
+                }
+            }
+        }
+        return s.isEmpty();
+    }
+
     public static void main(String[] args) {
 
         // Q1. Push at Bottom of Stack
@@ -107,5 +122,9 @@ public class stackPractice {
         int[] arr = {6, 8, 0, 1, 3};
         int[] res = nextGreater(arr);
         for(int i : res) System.out.print(i + " ");
+        System.out.println();
+
+        // Q6. Valid Parenthesis
+        System.out.println(validParenthesis("(){[]}"));
     }
 }
