@@ -13,7 +13,21 @@ public class stackPractice {
         s.push(d);
     }
 
+    // Q2. Reverse a String using Stack
+    public static String reverseString(String str) {
+        Stack<Character> s = new Stack<>();
+        for(char ch : str.toCharArray()) s.push(ch);
+
+        StringBuilder sb = new StringBuilder();
+        while(!s.isEmpty()) {
+            sb.append(s.pop());
+        }
+        return sb.toString();
+    }
+
     public static void main(String[] args) {
+
+        // Q1. Push at Bottom of Stack
         Stack<Integer> st = new Stack<>();
         st.push(1);
         st.push(2);
@@ -21,5 +35,10 @@ public class stackPractice {
         System.out.println(st);
         pushAtBottom(st, 4);
         System.out.println(st);
+
+        // Q2. Reverse a String
+        System.out.println(reverseString("abc"));
+
+        
     }
 }
