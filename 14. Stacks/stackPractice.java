@@ -25,6 +25,15 @@ public class stackPractice {
         return sb.toString();
     }
 
+    // Q3. Reverse a Stack
+    public static void reverseStack(Stack<Integer> s) {
+        if(s.isEmpty()) return;
+
+        int d = s.pop();
+        reverseStack(s);
+        pushAtBottom(s, d);
+    }
+
     public static void main(String[] args) {
 
         // Q1. Push at Bottom of Stack
@@ -39,6 +48,13 @@ public class stackPractice {
         // Q2. Reverse a String
         System.out.println(reverseString("abc"));
 
-        
+        // Q3. Reverse a Stack
+        Stack<Integer> st1 = new Stack<>();
+        st1.push(1);
+        st1.push(2);
+        st1.push(3);
+        System.out.println(st1);
+        reverseStack(st1);
+        System.out.println(st1);
     }
 }
