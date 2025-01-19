@@ -54,6 +54,24 @@ public class stackPractice {
         }
     }
 
+    // Q5. Next Greater Element
+    public static int[] nextGreater(int[] arr) {
+        Stack<Integer> s = new Stack<>();
+        int[] res = new int[arr.length];
+        for(int i = arr.length-1; i >= 0; i--) {
+            while(!s.isEmpty() && arr[s.peek()] <= arr[i]) {
+                s.pop();
+            }
+            if(s.isEmpty()) {
+                res[i] = -1;
+            } else {
+                res[i] = arr[s.peek()];
+            }
+            s.push(i);
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
 
         // Q1. Push at Bottom of Stack
@@ -83,5 +101,11 @@ public class stackPractice {
         stockSpan(stocks, span);
 
         for(int i = 0; i < span.length; i++) System.out.print(span[i] + " ");
+        System.out.println();
+
+        // Q5. Next Greater Element
+        int[] arr = {6, 8, 0, 1, 3};
+        int[] res = nextGreater(arr);
+        for(int i : res) System.out.print(i + " ");
     }
 }
