@@ -87,6 +87,24 @@ public class stackPractice {
         return s.isEmpty();
     }
 
+    // Q7. Duplicate Parenthesis
+    public static boolean duplicateParenthesis(String str) {
+        Stack<Character> s = new Stack<>();
+        for(char ch : str.toCharArray()) {
+            if(ch != ')') s.push(ch);
+            else {
+                int count = 0;
+                while (s.peek() != '(') {
+                    count++;
+                    s.pop();
+                }
+                s.pop();
+                if(count == 0) return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
 
         // Q1. Push at Bottom of Stack
@@ -126,5 +144,9 @@ public class stackPractice {
 
         // Q6. Valid Parenthesis
         System.out.println(validParenthesis("(){[]}"));
+
+        // Q7. Duplicate Parenthesis
+        System.out.println(duplicateParenthesis("a+(b+(c))")); // False
+        System.out.println(duplicateParenthesis("((a))")); // True
     }
 }
