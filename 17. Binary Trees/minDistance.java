@@ -27,7 +27,7 @@ public class minDistance {
             return newNode;
         }
 
-        public static int minDistance1(Node root, Node n1, Node n2) { // TC -> O(n) , SC -> O(h)
+        public static int minDistance1(Node root, Node n1, Node n2) { // TC -> O(n) , SC -> O(n)
             if(root == null) {
                 return -1;
             }
@@ -63,7 +63,7 @@ public class minDistance {
         }
     }
 
-    public static int minDistance(Node root, int n1, int n2) { // TC-> O(n) , SC-> O(1)
+    public static int minDistance(Node root, int n1, int n2) { // TC-> O(n) , SC-> O(h)
         if(root == null) {
             return -1;
         }
