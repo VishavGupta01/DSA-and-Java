@@ -81,6 +81,56 @@ public class lowestCommonAncestor {
         return root;
     }
 
+    // Revision
+    public static int lcaR1(Node root, int n1, int n2) {
+        ArrayList<Node> path1 = new ArrayList<>();
+        ArrayList<Node> path2 = new ArrayList<>();
+
+        if(!getPath1(root, n1, path1) || !getPath1(root, n2, path2)) {
+            return -1;
+        }
+
+        int i = 0;
+        for(; i < path1.size() && i < path2.size(); i++) {
+            if(path1.get(i).data != path2.get(i).data) {
+                break;
+            }
+        }
+        return path1.get(i-1).data;
+    }
+
+    public static boolean getPath1(Node root, int n, ArrayList<Node> path) {
+        if(root == null) {
+            return false;
+        }
+
+        path.add(root);
+        if(root.data == n) {
+            return true;
+        }
+
+        if(getPath(root.left, n, path) || getPath(root.right, n, path)) {
+            return true;
+        }
+        path.remove(root);
+        return false;
+    }
+
+    public static Node lcaR2(Node root, int n1, int n2) {
+        if(root == null || root.data == n1 || root.data == n2) {
+            return root;
+        }
+
+        Node left = lcaR2(root.left, n1, n2);
+        Node right = lcaR2(root.right, n1, n2);
+        if(right == null) {
+            return left;
+        } else if(left == null) {
+            return right;
+        }
+        return root;
+    }
+
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
         Node root = new Node(1);
@@ -91,6 +141,6 @@ public class lowestCommonAncestor {
         root.right.left = new Node(6);
         root.right.right = new Node(7);
 
-        System.out.println(lca2(root, 6, 7).data);
+        System.out.println(lcaR2(root, 6, 7).data);
     }
 }
