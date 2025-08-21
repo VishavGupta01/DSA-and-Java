@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class basicsBST {
     static class Node {
@@ -108,12 +110,73 @@ public class basicsBST {
         return isValidBST(root.left, min, root) && isValidBST(root.right, root, max);
     }
 
-    public static void main(String[] args) {
-        int[] values = {5, 3, 1, 4, 6, 7};
-        Node root = null;
-        for(int val : values) {
-            root = insert(root, val);
+    public static Node createMirror(Node root) {
+        if(root == null) {
+            return null;
         }
-        System.out.println(isValidBST(root, null, null));
+
+        Node left = createMirror(root.left);
+        Node right = createMirror(root.right);
+
+        root.left = right;
+        root.right = left;
+        return root;
+    }
+
+    public static Node sortedArrayToBST(Node root, int[] arr, int start, int end) {
+        if(start > end) {
+            return null;
+        }
+
+        int mid = start + (end - start) / 2;
+        root = new Node(arr[mid]);
+        root.left = sortedArrayToBST(root.left, arr, start, mid - 1);
+        root.right = sortedArrayToBST(root.right, arr, mid + 1, end);
+
+        return root;
+    }
+
+    public static void levelOrder(Node root) {
+        if(root == null) {
+            return;
+        }
+
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        q.add(null);
+
+        while(!q.isEmpty()) {
+            Node curr = q.remove();
+            if(curr == null) {
+                if(q.isEmpty()) {
+                    return;
+                } else {
+                    q.add(null);
+                    System.out.println();
+                }
+            } else {
+                System.out.print(curr.data + " ");
+                if(curr.left != null) q.add(curr.left);
+                if(curr.right != null) q.add(curr.right);
+            }
+        }
+        return;
+    }
+
+    public static void main(String[] args) {
+        // int[] values = {5, 3, 1, 4, 6, 7};
+        // Node root = null;
+        // for(int val : values) {
+        //     root = insert(root, val);
+        // }
+        // levelOrder(root);
+        // root = createMirror(root);
+        // System.out.println();
+        // levelOrder(root);
+
+        int[] arr = {1,2,3,4,5,6,7};
+        Node root = null;
+        root = sortedArrayToBST(root, arr, 0, arr.length - 1);
+        levelOrder(root);
     }
 }
