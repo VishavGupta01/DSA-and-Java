@@ -136,6 +136,15 @@ public class basicsBST {
         return root;
     }
 
+    public static void sortedList(Node root, ArrayList<Integer> list) {
+        if(root == null) {
+            return;
+        }
+        sortedList(root.left, list);
+        list.add(root.data);
+        sortedList(root.right, list);
+    }
+
     public static void levelOrder(Node root) {
         if(root == null) {
             return;
@@ -174,8 +183,27 @@ public class basicsBST {
         // System.out.println();
         // levelOrder(root);
 
-        int[] arr = {1,2,3,4,5,6,7};
-        Node root = null;
+        // int[] arr = {1,2,3,4,5,6,7};
+        // Node root = null;
+        // root = sortedArrayToBST(root, arr, 0, arr.length - 1);
+        // levelOrder(root);
+
+        Node root = new Node(8);
+        root.left = new Node(6);
+        root.left.left = new Node(5);
+        root.left.left.left = new Node(3);
+        root.right = new Node(10);
+        root.right.right = new Node(11);
+        root.right.right.right = new Node(12);
+        levelOrder(root);
+        System.out.println();
+
+        ArrayList<Integer> list = new ArrayList<>();
+        sortedList(root, list);
+        int[] arr = new int[list.size()];
+        for(int i = 0; i < list.size(); i++) {
+            arr[i] = list.get(i);
+        }
         root = sortedArrayToBST(root, arr, 0, arr.length - 1);
         levelOrder(root);
     }
