@@ -1,6 +1,6 @@
 import java.util.TreeMap;
 
-public class treeHashMaps {
+public class treeMaps {
     public static void main(String[] args) {
         TreeMap<String, Integer> map = new TreeMap<>(); // Sorted by Keys , Implemented by Red-Black Trees
 
