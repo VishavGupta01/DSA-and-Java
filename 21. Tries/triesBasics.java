@@ -90,6 +90,20 @@ public class triesBasics {
         return sb.toString();
     }
 
+    public static boolean startsWith(Node root, String prefix) {
+        if(prefix.equals("")) {
+            return true;
+        }
+        Node curr = root;
+        for(char ch : prefix.toCharArray()) {
+            if(curr.children[ch - 'a'] == null) {
+                return false;
+            }
+            curr = curr.children[ch - 'a'];
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         // Node root1 = new Node();
         // String[] strings = {"the", "a", "there", "their", "any", "thee"};
@@ -108,19 +122,29 @@ public class triesBasics {
         // }
         // System.out.println(wordBreak(key, root2));
 
-        String[] arr = {"a", "ant"};
+        // String[] arr = {"a", "ant"};
 
-        Node root3 = new Node();
-        root3.freq = -1;
-        for(String s : arr) {
-            insertion(s, root3);
+        // Node root3 = new Node();
+        // root3.freq = -1;
+        // for(String s : arr) {
+        //     insertion(s, root3);
+        // }
+
+        // ArrayList<String> ans = new ArrayList<>();
+
+        // for(String s : arr) {
+        //     ans.add(prefixProblem2(s, root3));
+        // }
+        // System.out.println(ans);
+
+        Node root = new Node();
+        root.freq = -1;
+
+        String[] words = {"apple", "app", "mango", "man", "woman"};
+        String prefix = "moon";
+        for(String s : words) {
+            insertion(s, root);
         }
-
-        ArrayList<String> ans = new ArrayList<>();
-
-        for(String s : arr) {
-            ans.add(prefixProblem2(s, root3));
-        }
-        System.out.println(ans);
+        System.out.println(startsWith(root, prefix));
     }
 }
