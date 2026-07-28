@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "jobSequencing",
+            "request": "launch",
+            "mainClass": "jobSequencing",
+            "projectName": "Java (Apna College Course)_30ae61ca"
+        },
+        {
+            "type": "java",
             "name": "indianCoins",
             "request": "launch",
             "mainClass": "indianCoins",
