@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "chocola",
+            "request": "launch",
+            "mainClass": "chocola",
+            "projectName": "Java (Apna College Course)_30ae61ca"
+        },
+        {
+            "type": "java",
             "name": "jobSequencing",
             "request": "launch",
             "mainClass": "jobSequencing",
