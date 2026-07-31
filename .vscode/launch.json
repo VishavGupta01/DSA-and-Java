@@ -6,6 +6,62 @@
     "configurations": [
         {
             "type": "java",
+            "name": "graphBFS",
+            "request": "launch",
+            "mainClass": "graphBFS",
+            "projectName": "Java (Apna College Course)_30ae61ca"
+        },
+        {
+            "type": "java",
+            "name": "graphBasics",
+            "request": "launch",
+            "mainClass": "graphBasics",
+            "projectName": "Java (Apna College Course)_30ae61ca"
+        },
+        {
+            "type": "java",
+            "name": "basics",
+            "request": "launch",
+            "mainClass": "basics",
+            "projectName": "Java (Apna College Course)_30ae61ca"
+        },
+        {
+            "type": "java",
+            "name": "splitTheGivenArrayIntoKSubArrays",
+            "request": "launch",
+            "mainClass": "splitTheGivenArrayIntoKSubArrays",
+            "projectName": "Java (Apna College Course)_30ae61ca"
+        },
+        {
+            "type": "java",
+            "name": "bestTimeToBuyAndSellStock",
+            "request": "launch",
+            "mainClass": "bestTimeToBuyAndSellStock",
+            "projectName": "Java (Apna College Course)_30ae61ca"
+        },
+        {
+            "type": "java",
+            "name": "lexicographicallySmallestStringOfLengthNandSumK",
+            "request": "launch",
+            "mainClass": "lexicographicallySmallestStringOfLengthNandSumK",
+            "projectName": "Java (Apna College Course)_30ae61ca"
+        },
+        {
+            "type": "java",
+            "name": "kthLargestOddNumberInARange",
+            "request": "launch",
+            "mainClass": "kthLargestOddNumberInARange",
+            "projectName": "Java (Apna College Course)_30ae61ca"
+        },
+        {
+            "type": "java",
+            "name": "maxBalancedStringPartitions",
+            "request": "launch",
+            "mainClass": "maxBalancedStringPartitions",
+            "projectName": "Java (Apna College Course)_30ae61ca"
+        },
+        {
+            "type": "java",
             "name": "chocola",
             "request": "launch",
             "mainClass": "chocola",
