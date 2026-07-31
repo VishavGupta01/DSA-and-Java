@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "graphDFS",
+            "request": "launch",
+            "mainClass": "graphDFS",
+            "projectName": "Java (Apna College Course)_30ae61ca"
+        },
+        {
+            "type": "java",
             "name": "graphBFS",
             "request": "launch",
             "mainClass": "graphBFS",
