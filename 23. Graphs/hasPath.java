@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+// For a given src & dest, tell if a path exists from src to dest.
+
 public class hasPath {
     public static class Edge {
         int src;
@@ -68,7 +70,6 @@ public class hasPath {
                 }
             }
         }
-
         return false;
     }
 
