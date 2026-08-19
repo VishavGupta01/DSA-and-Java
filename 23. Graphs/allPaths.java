@@ -33,20 +33,26 @@ public class allPaths {
         return graph;
     }
 
-    public static void allPath(ArrayList<Edge>[] graph, int src, int dest, String path) {
+    public static void allPath(ArrayList<Edge>[] graph, int src, int dest, String path, boolean[] visited) {
         if(src == dest) {
             System.out.println(path + " " + dest);
             return;
         }
 
+        visited[src] = true;
+
         for(int i = 0; i < graph[src].size(); i++) {
             Edge e = graph[src].get(i);
-            allPath(graph, e.dest, dest, path + " " + src);
+            if(!visited[e.dest]) {
+                allPath(graph, e.dest, dest, path + " " + src, visited);
+            }
         }
+
+        visited[src] = false;
     }
 
     public static void main(String[] args) {
         ArrayList<Edge>[] graph = createGraph();
-        allPath(graph, 5, 1, "");
+        allPath(graph, 5, 1, "", new boolean[graph.length]);
     }
 }
